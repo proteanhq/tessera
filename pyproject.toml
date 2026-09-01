@@ -1,0 +1,64 @@
+[project]
+name = "tessera"
+version = "0.1.0"
+description = "A scenario library over a finance domain that walks every esoteric Protean surface"
+authors = [{name = "Subhash Bhushan C", email = "subhash.bhushan@gmail.com"}]
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "protean[postgresql,message-db,redis,telemetry] @ git+https://github.com/proteanhq/protean.git@main",
+    "python-dotenv>=1.0.0",
+    "structlog>=24.1.0",
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+cx = "cx.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/shared",
+    "src/ledger",
+    "src/accounts",
+    "src/payments",
+    "src/cards",
+    "src/fraud",
+    "src/compliance",
+    "src/reporting",
+    "src/notifications",
+    "src/insights",
+    "cx",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=3.6.0",
+    "ipython>=8.20.0",
+    "ipdb>=0.13.13",
+]
+test = [
+    "pytest>=8.2.1",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-mock>=3.12.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
