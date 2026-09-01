@@ -168,9 +168,10 @@ cython_debug/
 .vscode/
 .ruff_cache/
 
-# Local, machine-specific config kept out of the repo. .claude is a symlink to
-# a local, un-versioned location.
+# Local, machine-specific config kept out of the repo. .claude and .opencode are
+# symlinks to a local, un-versioned location.
 /.claude
+/.opencode
 # CLAUDE.md is a symlink to AGENTS.md; both are local maintainer guides that are
 # not shipped in the public repo.
 CLAUDE.md
