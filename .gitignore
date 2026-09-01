@@ -168,9 +168,13 @@ cython_debug/
 .vscode/
 .ruff_cache/
 
-# Claude Code config now lives in dotagents (dotagents/shopstream/dotclaude),
-# with .claude a symlink to it, matching the Protean setup. Ignore the symlink.
+# Local, machine-specific config kept out of the repo. .claude is a symlink to
+# a local, un-versioned location.
 /.claude
+# CLAUDE.md is a symlink to AGENTS.md; both are local maintainer guides that are
+# not shipped in the public repo.
+CLAUDE.md
+AGENTS.md
 
 # Load test results
 results/
